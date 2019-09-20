@@ -4,7 +4,7 @@ library(dplyr)
 options(scipen=999,stringsAsFactors = FALSE)
 
 #Key and Base URL
-Alma_key <- "l7xx991ffa86a3924169875c1a0385bfc833"
+Alma_key <- "[key redacted]"
 base_URL_Alma <- "https://api-na.hosted.exlibrisgroup.com/"
 
 #Read the file.
