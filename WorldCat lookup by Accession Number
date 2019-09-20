@@ -1,3 +1,7 @@
+# This returns a count of WorldCat holdings (total and in-state). It searches by Accession Number.
+# While searching by ISBN would return more holdings, it may return holdings for an ebook record, which is not what we want.
+# The Accession Numbers come from our catalog, so we assume they are the records with the largest number of holdings.
+
 library(httr)
 library(jsonlite)
 library(tidyverse)
@@ -8,16 +12,11 @@ damaged <- read.csv("./Monographs/Damaged/Damaged books 3-13.csv")
 oclc.raw <- damaged$Local.Param.01
 
 #clean up list
-#oclc.full <- unlist(strsplit(oclc.raw,";"))
-#oclc.full <- unlist(strsplit(oclc.full," "))
-#oc <- oclc.full[startsWith(oclc.full,"oc")]
-#OCoLC <- oclc.full[startsWith(oclc.full,"(OCoLC)")]
-#oclc.all <- unlist(c(oc,OCoLC))
 oclc.num <- parse_number(oclc.raw)
 oclc.num <- unique(oclc.num)
 
 #Set up the path and URL
-WorldCat_key <- "7B9Hcz5s3WMiGFnUBb1AEOB8Xk79utCDt2I4B6yeiT8NcROH1FZk8yemsuSCxmc5iyUZw37xiOlNbwJC"
+WorldCat_key <- "[key redacted]"
 URL_WorldCat <- "http://worldcat.org/"
 path_ocn <- "webservices/catalog/content/libraries/"
 
