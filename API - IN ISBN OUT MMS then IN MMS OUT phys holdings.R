@@ -1,3 +1,6 @@
+# This query is in R script. It is designed to take a list of ISBNs from a csv file and query a library's catalog to see what holdings exist.
+# The query contains some filters specific to Temple University Libraries.
+
 library(httr)
 library(jsonlite)
 library(dplyr)
